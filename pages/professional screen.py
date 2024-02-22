@@ -32,7 +32,7 @@ def save_vector(text):  #The function save_vector(text) is called to generate ve
     text_splitter = NLTKTextSplitter()
     texts = text_splitter.split_text(text)
      # Create emebeddings
-    embeddings = OpenAIEmbeddings(openai_api_key="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")
+    embeddings = OpenAIEmbeddings(openai_api_key="openaikey")
     docsearch = FAISS.from_texts(texts, embeddings)
     return docsearch  
 
@@ -81,7 +81,7 @@ def initialize_session_state_jd():
     #The generated guideline is stored in the session state as jd_guideline.
     if "jd_guideline" not in st.session_state:
         llm = ChatOpenAI(
-        openai_api_key="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",
+        openai_api_key="openaikey",
         model_name = "gpt-3.5-turbo",
         temperature = 0.8,)
 
@@ -100,7 +100,7 @@ def initialize_session_state_jd():
     # The conversation chain is initialized with the Language Model (LLM) and memory buffer.
     if "jd_screen" not in st.session_state:
         llm = ChatOpenAI(
-            openai_api_key="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",
+            openai_api_key="openaikey",
             model_name="gpt-3.5-turbo",
             temperature=0.8, )
         
@@ -130,7 +130,7 @@ def initialize_session_state_jd():
    
     if 'jd_feedback' not in st.session_state:
         llm = ChatOpenAI(
-            openai_api_key="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",
+            openai_api_key="openaikey",
             model_name="gpt-3.5-turbo",
             temperature=0.8, )
         
